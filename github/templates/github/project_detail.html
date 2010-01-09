@@ -1,0 +1,15 @@
+{% extends "github/base_github.html" %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ project.title }}</h1>
+  <p>{{ project.description|linebreaks }}</p>
+
+  <ul>
+    <li><a href="{{ project.github_url }}">{{ project.github_repo }} on GitHub</a></li>
+    <li><a href="{% url commit_list project.slug %}">View commits</a></li>
+    <li><a href="{% url blob_list project.slug %}">Browse source code</a></li>
+  </ul>
+  
+{% endblock %}

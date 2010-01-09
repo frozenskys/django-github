@@ -1,0 +1,11 @@
+{% extends "github/base_github.html" %}
+
+{% block title %}{{ project.title }} {{ object.path }}{% endblock %}
+
+{% block content %}
+  <h1>{{ object.path }}</h1>
+  <pre>
+    {{ object.data }}
+  </pre>
+  <p><a href="{{ object.download_url }}">Downlaod {{ object.name }}</a></p>
+{% endblock %}

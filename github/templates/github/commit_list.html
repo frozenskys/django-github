@@ -1,0 +1,15 @@
+{% extends "github/base_github.html" %}
+
+{% block title %}{{ project.title }} Commits{% endblock %}
+
+{% block content %}
+  <h1>{{ project.title }} Commits</h1>
+  
+  <ul>
+    {% for commit in object_list %}
+      <li><a href="{{ commit.get_absolute_url }}">Commit {{ commit.sha|slice:":8" }} for {{ commit.project.title }}</a> {{ commit.created|date:"m/d/Y g:ia" }}
+        <p>{{ commit.message }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

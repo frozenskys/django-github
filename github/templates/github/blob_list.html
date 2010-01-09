@@ -1,0 +1,13 @@
+{% extends "github/base_github.html" %}
+
+{% block title %}{{ project.title }} Source Code{% endblock %}
+
+{% block content %}
+  <h1>{{ project.title }} Source Code</h1>
+  
+  <ul>
+    {% for blob in object_list %}
+      <li><a href="{{ blob.get_absolute_url }}">{{ blob.path }}</a> ({{ blob.size|filesizeformat }})</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

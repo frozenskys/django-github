@@ -1,0 +1,13 @@
+{% extends "github/base_github.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+  <h1>Projects</h1>
+  
+  <ul>
+    {% for project in object_list %}
+      <li><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
