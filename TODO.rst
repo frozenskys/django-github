@@ -1,4 +1,4 @@
 Todo
 ====
 
-* management command to update repos
+* write tests
