@@ -11,19 +11,10 @@ class ProjectAdmin(admin.ModelAdmin):
     def fetch_github(self, request, queryset):
         updated = []
         for project in queryset:
-            result = project.fetch_github()
-            if result:
+            if project.fetch_github():
                 updated.append(project.title)
         self.message_user(request, "%s successfully updated." % ', '.join(updated))
     fetch_github.short_description = 'Fetch from Github'
-    
-    def thumbnail(self, obj):
-        if len(obj.photos) > 0:
-            return obj.photos[0].thumbnail_view()
-        else:
-            return 'None'
-    thumbnail.short_description = 'Cover thumbnail'
-    thumbnail.allow_tags = True
 
 class CommitAdmin(admin.ModelAdmin):
     list_display = ('project', 'name', 'sha', 'created')
